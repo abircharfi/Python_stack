@@ -1,0 +1,34 @@
+INSERT INTO dojos (name) VALUES ("Python");
+INSERT INTO dojos (name) VALUES ("JAVA");
+INSERT INTO dojos (name) VALUES ("Mern");
+-------------------------------------------
+DELETE FROM  dojos WHERE id = 1;
+DELETE FROM  dojos WHERE id = 2;
+DELETE FROM  dojos WHERE id = 3; 
+-------------------------------------------
+INSERT INTO dojos (name) VALUES ("data_sience");
+INSERT INTO dojos (name) VALUES ("cybersecurity");
+INSERT INTO dojos (name) VALUES ("BI");
+-----------------------------------------------
+INSERT INTO ninjas (first_name,last_name,age,dojo_id) VALUES ("Selena","Gomez",32,4);
+INSERT INTO ninjas (first_name,last_name,age,dojo_id) VALUES ("Cardi","B",28,4);
+INSERT INTO ninjas (first_name,last_name,age,dojo_id) VALUES ("Britney","spears",40,4);
+------------------------------------------------------------------------------------
+INSERT INTO ninjas (first_name,last_name,age,dojo_id) VALUES ("Abir","Charfi",32,5);
+INSERT INTO ninjas (first_name,last_name,age,dojo_id) VALUES ("johnny","depp",50,5);
+INSERT INTO ninjas (first_name,last_name,age,dojo_id) VALUES ("brad","pitt",55,5);
+----------------------------------------------------------------------------------
+INSERT INTO ninjas (first_name,last_name,age,dojo_id) VALUES ("Angelina","jolie",52,6);
+INSERT INTO ninjas (first_name,last_name,age,dojo_id) VALUES ("Jennifer","Lopez",50,6);
+INSERT INTO ninjas (first_name,last_name,age,dojo_id) VALUES ("Matt","Leblanc",40,6);
+--------------------------------------------------------------------------------------
+SELECT * FROM dojos 
+LEFT JOIN ninjas on dojos.id= ninjas.dojo_id
+where dojos.id = (select id from dojos order by id asc limit 1 );
+---------------------------------------------------------------------
+SELECT * FROM dojos 
+LEFT JOIN ninjas on dojos.id= ninjas.dojo_id
+where dojos.id = (select id from dojos order by id desc limit 1 );
+------------------------------------------------------------
+SELECT * FROM ninjas 
+order by dojo_id = (SELECT id from dojos order by id desc limit 1) desc limit 1;

@@ -1,0 +1,29 @@
+h1 {
+
+    color: red;
+    text-align: center;
+
+}
+
+.container{
+
+    display: flex;
+    justify-content: center;
+    
+}
+
+.box1{
+
+    width: 150px;
+    height: 150px;
+    display: flex;
+    background-color: red;
+}
+
+.box2{
+
+    width: 150px;
+    height: 150px;
+    display: flex;
+    background-color: green;
+}

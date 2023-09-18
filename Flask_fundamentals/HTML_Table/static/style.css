@@ -1,0 +1,21 @@
+body {
+    text-align: center;
+}
+
+table {
+    width: 800px;
+    margin: 0 auto; 
+}
+
+table th {
+    background-color: rgba(66, 64, 64, 0.719);
+    color: rgb(247, 247, 9);
+    height: 50px;
+}
+
+table td {
+    color: black;
+    background-color: white;
+    border-bottom: 1px solid black; 
+    height: 50px;;
+}
