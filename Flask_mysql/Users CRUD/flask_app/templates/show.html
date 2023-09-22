@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <!-- Include Bootstrap CSS (you can use a CDN or link to your local Bootstrap CSS file) -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar bg-body-tertiary">
+        <form action="/" class="container-fluid justify-content-start">
+      
+            <button type="submit"  class="btn btn-primary">Home</button>
+        </form>
+    </nav>
+    <div class="container">
+       <h2>USER {{user.id}}</h2> 
+      <ul class="list-group">
+        <li class="list-group-item">{{user.id}}</li>
+        <li class="list-group-item">{{user.first_name+' '+user.last_name}}</li>
+        <li class="list-group-item">{{user.email}}</li>
+        <li class="list-group-item">{{user.created_at}}</li>
+        
+      </ul>
+    <!-- Include Bootstrap JavaScript and jQuery (if needed) -->
+      
+    </div>
+    <div class="container">
+        <a href="/show_edit/{{user.id}}" >Edit</a> | | <a href="/delete/{{user.id}}" >Delete</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
