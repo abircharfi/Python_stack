@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- Include Bootstrap CSS (you can use a CDN or link to your local Bootstrap CSS file) -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id </th>
+                <th>Full name</th>
+                <th>Email</th>
+                <th>Created at</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{user.id}}</td>
+                <td>{{user.first_name+' '+user.last_name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.created_at}}</td>
+            </tr>
+            {% endfor %}
+           
+        </tbody>
+    </table>
+    </div>
+    <div class="container">
+        <form action="/user">
+          <button type="submit"  class="btn btn-primary">Add new user</button>
+        </form>
+    </div>
+   
+    <!-- Include Bootstrap JavaScript and jQuery (if needed) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
