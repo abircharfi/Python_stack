@@ -15,6 +15,7 @@ class user:
        query ="INSERT INTO users (first_name,last_name,email) VALUES (%(first_name)s,%(last_name)s,%(email)s);"
        
        return connectToMySQL('DB').query_db(query,data)
+    
     @classmethod
     def read_all(cls):
        query = "select * from users"
