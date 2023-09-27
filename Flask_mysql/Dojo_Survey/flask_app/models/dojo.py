@@ -34,10 +34,7 @@ class Dojo:
         return connectToMySQL(DB).query_db(query, data)
     
     @classmethod
-    def get_one_dojo(cls,data):
-     query="SELECT * from dojos where id=%(id)s;"
-     results = connectToMySQL(DB).query_db(query,data)
-     dojo =None
-     if results != []:
-        dojo=cls(results[0])
-     return dojo
+    def get_one_dojo(cls):
+     query="SELECT * from dojos ORDER BY dojos.id DESC LIMIT 1"
+     results = connectToMySQL(DB).query_db(query)
+     return Dojo(results[0])
