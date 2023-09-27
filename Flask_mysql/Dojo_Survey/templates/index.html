@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Document</title>
 </head>
+
 <body>
+
     <body>
         <div class="container">
             <h2>Dojo Survey</h2>
             <form action="/process" method="post">
+                {% with messages = get_flashed_messages() %} <!-- declare a variable called messages -->
+                {% if messages %} <!-- check if there are any messages -->
+                {% for message in messages %} <!-- loop through the messages -->
+                <p>{{message}}</p> <!-- display each message in a paragraph tag -->
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+
                 <div class="form-group">
                     <label for="name">Name :</label>
                     <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group">
                     <label for="location">Dojo location :</label>
-                    <select id="location" name="location" >
-                        <option selected >---- Select Location ----</option>
+                    <select id="location" name="location">
+                        <option value="">---- Select Location ----</option>
                         <option value="chicago">Chicago</option>
                         <option value="online">Online</option>
                         <option value="onsite">Onsite</option>
@@ -27,7 +38,7 @@
                 <div class="form-group">
                     <label for="language">Favorite language :</label>
                     <select id="language" name="language">
-                        <option selected >---- Select language ----</option>
+                        <option value="">---- Select language ----</option>
                         <option value="python">Python</option>
                         <option value="javascript">JavaScript</option>
                         <option value="java">Java</option>
@@ -45,4 +56,5 @@
         </div>
     </body>
 </body>
+
 </html>
