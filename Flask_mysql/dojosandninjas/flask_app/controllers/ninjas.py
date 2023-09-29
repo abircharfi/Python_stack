@@ -11,13 +11,6 @@ def add_new_ninja():
     return render_template('ninja.html' ,  dojos=dojos)
 
 
-@app.route('/dojos')
-def dojos():
-    dojos = Dojo.select_all()
-    
-    return render_template('dojo.html', dojos=dojos)
-
-
 @app.route('/dojos/<int:id>')
 def ninjas_in_dojo(id):
     data = {'id': id}
@@ -25,13 +18,9 @@ def ninjas_in_dojo(id):
     dojos = Dojo.get_one_dojo(data)
     return render_template('ninja_in_dojo.html', ninjas = ninjas, dojos=dojos)
 
-@app.route('/new_dojo' , methods=['POST'])
-def new_dojo():
- Dojo.create(request.form)
- return redirect('/dojos')
+
 
 @app.route('/new_ninja', methods=['POST'])
 def add_ninja():
-
     Ninja.create(request.form)
     return redirect('/dojos')

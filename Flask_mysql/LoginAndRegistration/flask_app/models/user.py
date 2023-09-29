@@ -55,10 +55,14 @@ class User:
        return connectToMySQL('DB').query_db(query,data)
     
     @classmethod
-    def get_one(cls):
-     query = "select * from users ORDER BY users.id DESC LIMIT 1"
-     results = connectToMySQL(DB).query_db(query)
-     return User(results[0])
+    def get_one(cls,data):
+     query = "select * from users WHERE id =%(id)s"
+     result= connectToMySQL(DB).query_db(query,data)
+     user = None
+     if result:
+            user = User(result[0])
+     return user
+     
     
     @staticmethod
     def validate_login(data):

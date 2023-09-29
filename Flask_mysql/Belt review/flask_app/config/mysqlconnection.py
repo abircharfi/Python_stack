@@ -1,12 +1,12 @@
 import pymysql.cursors
-DB ="users_schema"
+# this class will give us an instance of a connection to our database
 class MySQLConnection:
     def __init__(self, db):
         # change the user and password as needed
         connection = pymysql.connect(host = 'localhost',
                                     user = 'root', 
-                                    password = '22146855poiuy', 
-                                    db = DB,
+                                    password = 'root', 
+                                    db = db,
                                     charset = 'utf8mb4',
                                     cursorclass = pymysql.cursors.DictCursor,
                                     autocommit = True)
