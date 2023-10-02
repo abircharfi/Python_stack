@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="statics/style.css"> <title>Add New Recipe</title>
+</head>
+<body>
+    <header class="container d-flex justify-content-between align-items-center">
+        <h1>Add New Recipe</h1>
+        <div class="w-25 d-flex gap-4">
+            <a href="/dashboard" class="btn btn-primary">Dashboard</a>
+            <a href="/logout" class="btn btn-danger">Logout</a>
+        </div>
+    </header>
+    <main class="container">
+
+        <form action="/create/recipe" method="post" class="form">
+            <input type="hidden" name="user_id" value="{{logged_user.id}}">
+
+            <div class="form-group">
+                <label for="title">Name: </label>
+                <input type="text" name="name" placeholder="Title" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description: </label>
+                <textarea name="description"  cols="30" rows="10" class="form-control"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="instructions">Instructions: </label>
+                <textarea name="instructions"  cols="30" rows="10" class="form-control"></textarea>
+
+            </div>
+
+            <div class="form-group">
+                <label for="made_on">Date Made On: </label>
+                <input type="date" name="created_at"  class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="duration">Under 30 minutes ? </label>           
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="duration" value="1" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="duration" value="0" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                  No
+                </label>
+                </div> 
+               </div>        
+
+            <button type="submit" class="btn btn-success">Create</button>
+        </form>
+    </main>
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert alert-danger" role="alert">
+          {% for message in messages %}
+    
+          <p>{{message}}</p>
+          {% endfor %}
+          {% endif %}
+        </div>
+        {% endwith %}
+      </div>
+    
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    </body>
+    
+    </html>

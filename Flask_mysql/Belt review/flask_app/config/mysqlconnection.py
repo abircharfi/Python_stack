@@ -1,12 +1,12 @@
 import pymysql.cursors
-# this class will give us an instance of a connection to our database
+DB="recipe_schema"
 class MySQLConnection:
     def __init__(self, db):
         # change the user and password as needed
         connection = pymysql.connect(host = 'localhost',
                                     user = 'root', 
-                                    password = 'root', 
-                                    db = db,
+                                    password = '22146855poiuy', 
+                                    db = DB,
                                     charset = 'utf8mb4',
                                     cursorclass = pymysql.cursors.DictCursor,
                                     autocommit = True)
