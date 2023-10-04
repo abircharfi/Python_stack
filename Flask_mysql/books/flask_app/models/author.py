@@ -12,7 +12,7 @@ class Author:
         self.created_at=data['created_at']
         self.updated_at=data['updated_at']
         self.book=None
-        self.books_liked=[]
+
 
     @classmethod
     def create(cls,data):

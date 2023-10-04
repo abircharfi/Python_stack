@@ -10,8 +10,7 @@ class Book:
      self.num_of_pages= data['num_of_pages']
      self.created_at= data['created_at']
      self.updated_at= data['updated_at']
-     self.authors_who_liked=[]
-     self.author_liked=[]
+
 
 
     @classmethod
@@ -41,10 +40,6 @@ class Book:
      if result:
         book = cls(result[0])
      return book
-    
-    @classmethod
-    def favorite_by_author():
-       query="SELECT * FROM books "
 
     @classmethod
     def add_favorite(cls,data):
